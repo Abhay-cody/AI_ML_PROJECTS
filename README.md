@@ -8,7 +8,7 @@ https://canada-scapitayearwiseincomeprediction-caf5pjftchyrk9q8fwetg5.streamlit.
 
 Project_4(Employee Retention) URL :- 
 
-https://employeeretensionusinglogisticregression-ljnbmty8nrs3xkmvbu7gs.streamlit.app/
+https://employeeretention-fxzybwz2rgest8qy2xoqyx.streamlit.app/
 
 Project_6(Iris Clustering Using K-means Algorithm) URL :- 
 
