@@ -27,7 +27,11 @@ st.write("Predict house price using Linear Regression")
 # Load Dataset
 # -----------------------------------
 df = pd.read_csv("houseprice.csv")
+BASE_DIR = Path(__file__).resolve().parent
 
+csv_path = BASE_DIR / "houseprice.csv"
+
+df = pd.read_csv(csv_path)
 st.subheader("Dataset")
 st.dataframe(df)
 
