@@ -1,2 +1,2 @@
 WEBSITE LINK :----
-https://canada-scapitayearwiseincomeprediction-caf5pjftchyrk9q8fwetg5.streamlit.app/
+https://aimlprojects-ljdner77sfzvyr7yvhagm3.streamlit.app/
