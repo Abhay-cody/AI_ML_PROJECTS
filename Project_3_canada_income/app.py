@@ -14,11 +14,13 @@ st.write("This app uses a simple **Linear Regression** model to predict Canada's
 # ==========================================
 # 1. Load the Dataset
 # ==========================================
-try:
-    df = pd.read_csv('canada_per_capita_income.csv')
-except FileNotFoundError:
-    st.error("Error: 'canada_per_capita_income.csv' file not found. Make sure it's in the same directory.")
-    st.stop()
+from pathlib import Path
+import pandas as pd
+
+BASE_DIR = Path(__file__).resolve().parent
+CSV_FILE = BASE_DIR / "canada_per_capita_income.csv"
+
+df = pd.read_csv(CSV_FILE)
 
 # Show raw data inside an expander
 with st.expander("📊 View Historical Data"):
