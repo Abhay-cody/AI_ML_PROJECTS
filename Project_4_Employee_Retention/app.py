@@ -59,9 +59,19 @@ import streamlit as st
 
 @st.cache_data
 def load_data():
+    from pathlib import Path
+    import pandas as pd
+
     BASE_DIR = Path(__file__).parent
     csv_path = BASE_DIR / "HR_comma_sep.csv"
+
     return pd.read_csv(csv_path)
+
+# Load dataset
+df = load_data()
+
+st.subheader("Dataset Preview")
+st.dataframe(df)
 # ---------------------------
 # Sidebar
 # ---------------------------
