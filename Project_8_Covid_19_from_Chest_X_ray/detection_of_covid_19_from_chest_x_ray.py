@@ -17,9 +17,6 @@ from keras_preprocessing import image
 from keras_preprocessing.image import ImageDataGenerator
 import matplotlib.pyplot as plt
 
-#install kaggle
-! pip install kaggle
-
 ! kaggle datasets download alifrahman/covid19-chest-xray-image-dataset
 
 ! mkdir train
