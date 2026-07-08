@@ -12,6 +12,9 @@ st.set_page_config(
     layout="centered"
 )
 
+import os
+st.write("Current directory:", os.getcwd())
+st.write("Files:", os.listdir("."))
 # -------------------------
 # Load Model
 # -------------------------
