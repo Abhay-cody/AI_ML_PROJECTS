@@ -4,7 +4,7 @@ https://aimlprojects-kxherbwwsu8eez93fnnxjl.streamlit.app/
 
 Project_3(Canada's Capital yearwise Income) URL :- 
 
-https://canada-scapitayearwiseincomeprediction-caf5pjftchyrk9q8fwetg5.streamlit.app/
+https://aimlprojects-ljdner77sfzvyr7yvhagm3.streamlit.app/
 
 Project_4(Employee Retention) URL :- 
 
