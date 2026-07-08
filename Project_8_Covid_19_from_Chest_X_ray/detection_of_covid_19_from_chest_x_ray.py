@@ -10,6 +10,7 @@ Original file is located at
 pip install keras_preprocessing
 
 # Import the required modules
+import streamlit as st
 import numpy as np
 import pandas as pd
 import tensorflow as tf
@@ -120,7 +121,7 @@ plt.show()
 import tensorflow as tf
 from tensorflow.keras.models import save_model
 # Save the compiled model to an H5 file
-save_model(model, 'model.h5')
+save_model(model, 'model.keras')
 
 import numpy as np
 from tensorflow.keras.preprocessing import image
@@ -128,7 +129,7 @@ from tensorflow.keras.models import load_model
 import matplotlib.pyplot as plt
 
 # Assuming you have a pre-trained model saved as 'your_model.h5'
-model = load_model('model.h5')
+model = load_model('model.keras')
 
 path = "/content/dataset/covid/01E392EE-69F9-4E33-BFCE-E5C968654078.jpeg"
 img = image.load_img(path, target_size=(299, 299))
