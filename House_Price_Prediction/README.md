@@ -1,2 +1,2 @@
 WEBSITE LINK :----
-https://linearregressiondeployment-kx6hfgtbvmsk4dyknrjlex.streamlit.app/
+https://aimlprojects-uesagn423gnlevktyccmsw.streamlit.app/
