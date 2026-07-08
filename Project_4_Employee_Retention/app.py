@@ -53,12 +53,15 @@ using a **Logistic Regression Machine Learning Model**.
 # ---------------------------
 # Load Dataset
 # ---------------------------
+from pathlib import Path
+import pandas as pd
+import streamlit as st
+
 @st.cache_data
 def load_data():
-    return pd.read_csv("HR_comma_sep.csv")
-
-df = load_data()
-
+    BASE_DIR = Path(__file__).parent
+    csv_path = BASE_DIR / "HR_comma_sep.csv"
+    return pd.read_csv(csv_path)
 # ---------------------------
 # Sidebar
 # ---------------------------
