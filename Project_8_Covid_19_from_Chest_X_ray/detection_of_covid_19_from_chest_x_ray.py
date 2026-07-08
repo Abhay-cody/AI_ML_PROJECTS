@@ -1,122 +1,126 @@
 import streamlit as st
+import tensorflow as tf
 import numpy as np
 from PIL import Image
-import tensorflow as tf
-from tensorflow.keras.models import load_model
 
-# ---------------- Page Configuration ---------------- #
+# ---------------------------
+# Page Configuration
+# ---------------------------
 st.set_page_config(
-    page_title="COVID-19 Detection from Chest X-Ray",
+    page_title="COVID-19 Chest X-Ray Detection",
     page_icon="🩻",
     layout="wide"
 )
 
-# ---------------- Load Model ---------------- #
+# ---------------------------
+# Load Model
+# ---------------------------
 @st.cache_resource
 def load_cnn():
-    try:
-        model = load_model("model.keras")
-    except:
-        model = load_model("model.h5")
-    return model
+    return tf.keras.models.load_model("model.keras")
 
 model = load_cnn()
 
 IMG_SIZE = (299, 299)
 
-# ---------------- Sidebar ---------------- #
+# ---------------------------
+# Sidebar
+# ---------------------------
 st.sidebar.title("👨‍💻 Developer")
 
 st.sidebar.markdown("""
-### **Abhay Gupta**
+### Abhay Gupta
 
 🎓 B.Tech CSE Student
 
-🔗 **GitHub**
+🌐 **GitHub**
 
 https://github.com/Abhay-cody
 
 💼 **LinkedIn**
 
 https://www.linkedin.com/in/abhay-gupta-41095828a/
-
----
-Built with ❤️ using Streamlit & TensorFlow.
 """)
 
-# ---------------- Main Title ---------------- #
+# ---------------------------
+# Main Title
+# ---------------------------
 st.title("🩻 COVID-19 Detection from Chest X-Ray")
 
-st.write("""
-Upload a **Chest X-Ray image** and the trained CNN model will predict whether the patient is:
-
-- ✅ Normal
-- ⚠️ COVID-19
+st.markdown("""
+This application uses a **Convolutional Neural Network (CNN)** trained on Chest X-Ray images
+to detect whether the uploaded X-Ray is **COVID-19 Positive** or **Normal**.
 """)
 
+st.divider()
+
 uploaded_file = st.file_uploader(
-    "Choose a Chest X-Ray Image",
+    "Upload a Chest X-Ray Image",
     type=["jpg", "jpeg", "png"]
 )
 
-# ---------------- Prediction ---------------- #
 if uploaded_file is not None:
 
     image = Image.open(uploaded_file).convert("RGB")
 
-    col1, col2 = st.columns(2)
+    col1, col2 = st.columns([1, 1])
 
     with col1:
-        st.image(image, caption="Uploaded Image", use_container_width=True)
+        st.image(image, caption="Uploaded X-Ray", use_container_width=True)
 
+    # Image Preprocessing
     img = image.resize(IMG_SIZE)
-    img = np.array(img) / 255.0
+    img = np.array(img, dtype=np.float32)
+    img = img / 255.0
     img = np.expand_dims(img, axis=0)
 
-    prediction = model.predict(img)[0][0]
+    # Prediction
+    prediction = model.predict(img, verbose=0)[0][0]
 
-    if prediction >= 0.5:
-        label = "🦠 COVID-19"
-        confidence = prediction * 100
-        color = "error"
-    else:
-        label = "✅ NORMAL"
+    # Since your training labels are:
+    # covid = 0
+    # normal = 1
+    # (If your class_indices are opposite, simply swap the labels below.)
+
+    if prediction < 0.5:
+        result = "🦠 COVID-19 Detected"
         confidence = (1 - prediction) * 100
-        color = "success"
 
-    with col2:
+        with col2:
+            st.error(result)
+            st.metric("Confidence", f"{confidence:.2f}%")
+            st.progress(confidence / 100)
 
-        st.subheader("Prediction")
+    else:
+        result = "✅ Normal"
+        confidence = prediction * 100
 
-        if color == "success":
-            st.success(label)
-        else:
-            st.error(label)
+        with col2:
+            st.success(result)
+            st.metric("Confidence", f"{confidence:.2f}%")
+            st.progress(confidence / 100)
 
-        st.metric(
-            label="Confidence",
-            value=f"{confidence:.2f}%"
-        )
+    st.divider()
 
-        st.progress(float(confidence / 100))
+    st.subheader("Model Output")
 
-        st.write("Raw Model Output:", round(float(prediction), 4))
+    st.write(f"Raw Prediction Score : **{prediction:.4f}**")
 
-st.markdown("---")
+st.divider()
 
 st.markdown("""
-### About the Project
+## About Project
 
-This project uses a **Convolutional Neural Network (CNN)** trained on Chest X-Ray images to classify:
+This project is based on a **Convolutional Neural Network (CNN)** trained to classify Chest X-Ray images into:
 
-- COVID-19
-- Normal
+- 🦠 COVID-19
+- ✅ Normal
 
-The uploaded image is resized to **299 × 299 pixels**, normalized, and passed through the trained CNN model.
+The uploaded image is automatically resized to **299 × 299 pixels**, normalized, and passed through the trained deep learning model for prediction.
 
 ---
+### ⚠ Disclaimer
 
-### ⚠️ Disclaimer
-
-This application is intended **only for educational and research purposes** and **must not** be used for medical diagnosis.
+This application is intended **only for educational and research purposes**.
+It should **not** be used as a substitute for professional medical diagnosis.
 """)
