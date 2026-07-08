@@ -27,11 +27,18 @@ st.write("Predict house price using Linear Regression")
 # Load Dataset
 # -----------------------------------
 df = pd.read_csv("houseprice.csv")
+from pathlib import Path
+import pandas as pd
+import streamlit as st
+
 BASE_DIR = Path(__file__).resolve().parent
+csv_file = BASE_DIR / "houseprice.csv"
 
-csv_path = BASE_DIR / "houseprice.csv"
+if not csv_file.exists():
+    st.error(f"Dataset not found: {csv_file}")
+    st.stop()
 
-df = pd.read_csv(csv_path)
+df = pd.read_csv(csv_file)
 st.subheader("Dataset")
 st.dataframe(df)
 
