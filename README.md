@@ -17,3 +17,7 @@ https://aimlprojects-bwnqtnnqsbjckdshud3bky.streamlit.app/
 House_Price_Prediction URL:--
 
 https://aimlprojects-uesagn423gnlevktyccmsw.streamlit.app/
+
+Insurance Purchase Prediction URl:--
+
+https://aimlprojects-tnt4aoueuhsstxbnpod27p.streamlit.app/
