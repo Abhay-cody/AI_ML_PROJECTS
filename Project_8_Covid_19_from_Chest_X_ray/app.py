@@ -10,6 +10,7 @@ Original file is located at
 pip install keras_preprocessing
 
 # Import the required modules
+import streamlit as st
 import numpy as np
 import pandas as pd
 import tensorflow as tf
