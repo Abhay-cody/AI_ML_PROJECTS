@@ -21,3 +21,7 @@ https://aimlprojects-uesagn423gnlevktyccmsw.streamlit.app/
 Insurance Purchase Prediction URl:--
 
 https://aimlprojects-tnt4aoueuhsstxbnpod27p.streamlit.app/
+
+Project_8(Covid_19_from_Chest_X_Ray) Website URL:--
+
+https://aimlprojects-lspcup2gtfcdqgo2awth6t.streamlit.app/
