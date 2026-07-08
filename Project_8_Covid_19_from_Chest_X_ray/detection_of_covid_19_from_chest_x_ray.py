@@ -7,8 +7,6 @@ Original file is located at
     https://colab.research.google.com/drive/1ZjJ1QY-pIgoG5kHjHv3xvZoNZe4cEHEI
 """
 
-pip install keras_preprocessing
-
 # Import the required modules
 import streamlit as st
 import numpy as np
