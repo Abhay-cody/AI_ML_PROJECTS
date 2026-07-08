@@ -18,13 +18,18 @@ st.write("Predict Insurance Purchase using Logistic Regression")
 
 # 1. Load Data
 # Note: Ensure "insurance_data.csv" is in the same directory as this script!
-try:
-    df = pd.read_csv("insurance_data.csv")
-    st.write("### Dataset Preview", df.head())
-except FileNotFoundError:
-    st.error("Please place 'insurance_data.csv' in the same folder as this script.")
-    st.stop()
+from pathlib import Path
+import pandas as pd
+import streamlit as st
 
+BASE_DIR = Path(__file__).resolve().parent
+DATA_FILE = BASE_DIR / "insurance_data.csv"
+
+try:
+    df = pd.read_csv(DATA_FILE)
+except FileNotFoundError:
+    st.error(f"Dataset not found!\nExpected location:\n{DATA_FILE}")
+    st.stop()
 # 3. Train Test Split (Locked with random_state for consistency)
 X_train, X_test, y_train, y_test = train_test_split(
     df[['age']], 
