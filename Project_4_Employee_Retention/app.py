@@ -70,8 +70,6 @@ def load_data():
 # Load dataset
 df = load_data()
 
-st.subheader("Dataset Preview")
-st.dataframe(df)
 # ---------------------------
 # Sidebar
 # ---------------------------
