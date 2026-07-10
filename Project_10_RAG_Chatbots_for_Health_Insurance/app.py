@@ -138,3 +138,34 @@ Question:
         st.subheader("Answer")
 
         st.write(response.content)
+
+# ---------------------------
+# Sidebar
+# ---------------------------
+st.sidebar.title("👨‍💻 Developer")
+
+st.sidebar.markdown(
+    """
+### 🔗 Connect with Me
+
+📂 **GitHub Repository**
+
+https://github.com/Abhay-cody/AI_ML_PROJECTS/tree/main/Project_10_RAG_Chatbots_for_Health_Insurance
+
+💼 **LinkedIn**
+
+https://www.linkedin.com/in/abhay-kumar-gupta-104a18397
+"""
+)
+
+st.sidebar.divider()
+
+st.sidebar.link_button(
+    "📂 View GitHub Repository",
+    "https://github.com/Abhay-cody/AI_ML_PROJECTS/tree/main/Project_10_RAG_Chatbots_for_Health_Insurance"
+)
+
+st.sidebar.link_button(
+    "💼 Connect on LinkedIn",
+    "https://www.linkedin.com/in/abhay-kumar-gupta-104a18397"
+)
