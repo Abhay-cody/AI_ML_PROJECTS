@@ -1,57 +1,131 @@
-import streamlit as st
+import os
 import requests
+import streamlit as st
 from bs4 import BeautifulSoup
 
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_community.vectorstores import FAISS
-from langchain_google_genai import GoogleGenerativeAIEmbeddings
-from langchain_google_genai import ChatGoogleGenerativeAI
-from langchain_chains_question_answering import load_qa_chain
+from langchain_google_genai import (
+    GoogleGenerativeAIEmbeddings,
+    ChatGoogleGenerativeAI,
+)
 
-st.set_page_config(page_title="Health Insurance RAG")
+# ---------------------------
+# Streamlit Page Config
+# ---------------------------
+st.set_page_config(
+    page_title="Health Insurance RAG Chatbot",
+    page_icon="🏥",
+    layout="wide"
+)
 
-st.title("🏥 Health Insurance Chatbot")
+st.title("🏥 Health Insurance RAG Chatbot")
+st.write("Ask questions about Health Insurance Policies.")
 
-api_key = st.sidebar.text_input("Google API Key", type="password")
+# ---------------------------
+# API Key
+# ---------------------------
+api_key = os.getenv("GOOGLE_API_KEY")
 
+if not api_key:
+    api_key = st.sidebar.text_input(
+        "Enter your Gemini API Key",
+        type="password"
+    )
+
+if not api_key:
+    st.warning("Please provide your Gemini API Key.")
+    st.stop()
+
+# ---------------------------
+# Website URL
+# ---------------------------
 URL = "https://www.starhealth.in/health-insurance/types-of-health-insurance/"
 
 
-@st.cache_resource
-def build_vectorstore(api_key):
+# ---------------------------
+# Load Website
+# ---------------------------
+@st.cache_data(show_spinner=True)
+def load_website():
 
-    response = requests.get(URL)
+    headers = {
+        "User-Agent": "Mozilla/5.0"
+    }
+
+    response = requests.get(URL, headers=headers, timeout=30)
+
+    response.raise_for_status()
 
     soup = BeautifulSoup(response.text, "html.parser")
 
     text = soup.get_text(separator="\n")
+
+    return text
+
+
+# ---------------------------
+# Build Vector Store
+# ---------------------------
+@st.cache_resource(show_spinner=True)
+def create_vector_store(text):
 
     splitter = RecursiveCharacterTextSplitter(
         chunk_size=1000,
         chunk_overlap=200
     )
 
-    docs = splitter.create_documents([text])
+    documents = splitter.create_documents([text])
 
     embeddings = GoogleGenerativeAIEmbeddings(
         model="models/embedding-001",
         google_api_key=api_key
     )
 
-    db = FAISS.from_documents(docs, embeddings)
+    db = FAISS.from_documents(documents, embeddings)
 
     return db
 
 
-if api_key:
+try:
 
-    db = build_vectorstore(api_key)
+    website_text = load_website()
 
-    question = st.text_input("Ask a question")
+    db = create_vector_store(website_text)
 
-    if question:
+except Exception as e:
+    st.error(f"Error loading website:\n\n{e}")
+    st.stop()
 
-        docs = db.similarity_search(question)
+# ---------------------------
+# User Question
+# ---------------------------
+question = st.text_input("Ask your question")
+
+if question:
+
+    with st.spinner("Searching..."):
+
+        docs = db.similarity_search(question, k=4)
+
+        context = "\n\n".join(
+            [doc.page_content for doc in docs]
+        )
+
+        prompt = f"""
+You are a Health Insurance assistant.
+
+Answer ONLY from the context below.
+
+If the answer is unavailable, say:
+"I couldn't find that information in the provided document."
+
+Context:
+{context}
+
+Question:
+{question}
+"""
 
         llm = ChatGoogleGenerativeAI(
             model="gemini-2.5-flash",
@@ -59,14 +133,8 @@ if api_key:
             temperature=0.2
         )
 
-        chain = load_qa_chain(llm, chain_type="stuff")
+        response = llm.invoke(prompt)
 
-        response = chain.run(
-            input_documents=docs,
-            question=question
-        )
+        st.subheader("Answer")
 
-        st.write(response)
-
-else:
-    st.info("Enter your Google API Key.")
+        st.write(response.content)
