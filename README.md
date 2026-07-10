@@ -10,6 +10,10 @@ Project_4(Employee Retention) URL :-
 
 https://aimlprojects-udzmnbm7yscjrybqsjxb5s.streamlit.app/
 
+Project_5(Male_Female_Image_Classification) URL :-
+
+https://aimlprojects-6baqrhkwesda84mti636zw.streamlit.app/
+
 Project_6(Iris Clustering Using K-means Algorithm) URL :- 
 
 https://aimlprojects-bwnqtnnqsbjckdshud3bky.streamlit.app/
