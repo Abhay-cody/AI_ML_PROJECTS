@@ -18,6 +18,10 @@ Project_6(Iris Clustering Using K-means Algorithm) URL :-
 
 https://aimlprojects-bwnqtnnqsbjckdshud3bky.streamlit.app/
 
+Project_8(Iris Flower Species Prediction Using KNN) URL :-
+
+https://aimlprojects-23emdpdz2dhkbw3izyltnn.streamlit.app/
+
 Project_8(Covid_19_from_Chest_X_Ray) Website URL:--
 
 https://aimlprojects-lspcup2gtfcdqgo2awth6t.streamlit.app/
