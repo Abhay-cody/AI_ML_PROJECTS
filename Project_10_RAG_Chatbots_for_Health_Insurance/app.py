@@ -139,33 +139,16 @@ Question:
 
         st.write(response.content)
 
-# ---------------------------
-# Sidebar
-# ---------------------------
-st.sidebar.title("👨‍💻 Developer")
+col1, col2 = st.columns(2)
 
-st.sidebar.markdown(
-    """
-### 🔗 Connect with Me
+with col1:
+    st.link_button(
+        "📂 GitHub Repository",
+        "https://github.com/Abhay-cody/AI_ML_PROJECTS/tree/main/Project_10_RAG_Chatbots_for_Health_Insurance"
+    )
 
-📂 **GitHub Repository**
-
-https://github.com/Abhay-cody/AI_ML_PROJECTS/tree/main/Project_10_RAG_Chatbots_for_Health_Insurance
-
-💼 **LinkedIn**
-
-https://www.linkedin.com/in/abhay-kumar-gupta-104a18397
-"""
-)
-
-st.sidebar.divider()
-
-st.sidebar.link_button(
-    "📂 View GitHub Repository",
-    "https://github.com/Abhay-cody/AI_ML_PROJECTS/tree/main/Project_10_RAG_Chatbots_for_Health_Insurance"
-)
-
-st.sidebar.link_button(
-    "💼 Connect on LinkedIn",
-    "https://www.linkedin.com/in/abhay-kumar-gupta-104a18397"
-)
+with col2:
+    st.link_button(
+        "💼 LinkedIn",
+        "https://www.linkedin.com/in/abhay-kumar-gupta-104a18397"
+    )
