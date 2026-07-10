@@ -139,24 +139,12 @@ Question:
 
         st.write(response.content)
 
-st.set_page_config(
-    page_title="Health Insurance RAG Chatbot",
-    page_icon="🏥",
-    layout="wide"
-)
+st.markdown("---")
 
-st.title("🏥 Health Insurance RAG Chatbot")
-st.write("Ask questions about Health Insurance Policies.")
+st.markdown("## 👨‍💻 Developer")
 
-# ---------------------------
-# Sidebar
-# ---------------------------
-st.sidebar.title("👨‍💻 Developer")
-
-st.sidebar.markdown(
+st.markdown(
     """
-### 🔗 Connect with Me
-
 📂 **GitHub Repository**
 
 https://github.com/Abhay-cody/AI_ML_PROJECTS/tree/main/Project_10_RAG_Chatbots_for_Health_Insurance
@@ -167,14 +155,4 @@ https://www.linkedin.com/in/abhay-kumar-gupta-104a18397
 """
 )
 
-st.sidebar.divider()
-
-st.sidebar.link_button(
-    "📂 View GitHub Repository",
-    "https://github.com/Abhay-cody/AI_ML_PROJECTS/tree/main/Project_10_RAG_Chatbots_for_Health_Insurance"
-)
-
-st.sidebar.link_button(
-    "💼 Connect on LinkedIn",
-    "https://www.linkedin.com/in/abhay-kumar-gupta-104a18397"
-)
+st.markdown("---")
