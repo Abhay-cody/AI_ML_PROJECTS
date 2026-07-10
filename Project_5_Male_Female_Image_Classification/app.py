@@ -1,0 +1,54 @@
+import streamlit as st
+import cv2
+import numpy as np
+import joblib
+from PIL import Image
+
+# Load trained model
+model = joblib.load("gender_model.pkl")
+
+IMG_SIZE = 64
+
+st.set_page_config(
+    page_title="Gender Classification",
+    page_icon="🧑",
+    layout="centered"
+)
+
+st.title("🧑 Male / Female Image Classifier")
+st.write("Upload an image to predict whether it is Male or Female.")
+
+uploaded_file = st.file_uploader(
+    "Choose an image...",
+    type=["jpg", "jpeg", "png"]
+)
+
+if uploaded_file is not None:
+
+    # Read image
+    image = Image.open(uploaded_file)
+
+    st.image(image, caption="Uploaded Image", use_container_width=True)
+
+    # Convert image to OpenCV format
+    img = np.array(image)
+
+    if len(img.shape) == 2:
+        img = cv2.cvtColor(img, cv2.COLOR_GRAY2BGR)
+
+    if img.shape[2] == 4:
+        img = cv2.cvtColor(img, cv2.COLOR_RGBA2BGR)
+
+    # Resize
+    img = cv2.resize(img, (IMG_SIZE, IMG_SIZE))
+
+    # Flatten
+    img = img.flatten().reshape(1, -1)
+
+    # Prediction
+    prediction = model.predict(img)[0]
+
+    classes = ["Male", "Female"]
+
+    st.subheader("Prediction")
+    st.success(classes[prediction])
