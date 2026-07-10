@@ -15,7 +15,10 @@ st.title("👤 Male vs Female Image Classification")
 
 IMG_SIZE=(64,64)
 MODEL_PATH="model.keras"
-TRAIN_DIR="train"
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+TRAIN_DIR = os.path.join(BASE_DIR, "train")
+
 
 @st.cache_resource
 def get_model():
