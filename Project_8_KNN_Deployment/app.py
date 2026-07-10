@@ -10,10 +10,20 @@ st.set_page_config(
 )
 
 # Load Model
+import os
+MODEL_PATH = "knn_model.pkl"
+
+if not os.path.exists(MODEL_PATH):
+    st.error(
+        f"Model file '{MODEL_PATH}' not found.\n\n"
+        "Please place it in the same folder as app.py."
+    )
+    st.stop()
+
 try:
-    model = joblib.load("knn_model.pkl")
+    model = joblib.load(MODEL_PATH)
 except Exception as e:
-    st.error(f"Error Loading Model: {e}")
+    st.error(f"Unable to load model: {e}")
     st.stop()
 
 # Custom CSS
