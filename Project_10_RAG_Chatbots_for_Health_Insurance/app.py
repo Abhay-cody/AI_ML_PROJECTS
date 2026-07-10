@@ -139,16 +139,42 @@ Question:
 
         st.write(response.content)
 
-col1, col2 = st.columns(2)
+st.set_page_config(
+    page_title="Health Insurance RAG Chatbot",
+    page_icon="🏥",
+    layout="wide"
+)
 
-with col1:
-    st.link_button(
-        "📂 GitHub Repository",
-        "https://github.com/Abhay-cody/AI_ML_PROJECTS/tree/main/Project_10_RAG_Chatbots_for_Health_Insurance"
-    )
+st.title("🏥 Health Insurance RAG Chatbot")
+st.write("Ask questions about Health Insurance Policies.")
 
-with col2:
-    st.link_button(
-        "💼 LinkedIn",
-        "https://www.linkedin.com/in/abhay-kumar-gupta-104a18397"
-    )
+# ---------------------------
+# Sidebar
+# ---------------------------
+st.sidebar.title("👨‍💻 Developer")
+
+st.sidebar.markdown(
+    """
+### 🔗 Connect with Me
+
+📂 **GitHub Repository**
+
+https://github.com/Abhay-cody/AI_ML_PROJECTS/tree/main/Project_10_RAG_Chatbots_for_Health_Insurance
+
+💼 **LinkedIn**
+
+https://www.linkedin.com/in/abhay-kumar-gupta-104a18397
+"""
+)
+
+st.sidebar.divider()
+
+st.sidebar.link_button(
+    "📂 View GitHub Repository",
+    "https://github.com/Abhay-cody/AI_ML_PROJECTS/tree/main/Project_10_RAG_Chatbots_for_Health_Insurance"
+)
+
+st.sidebar.link_button(
+    "💼 Connect on LinkedIn",
+    "https://www.linkedin.com/in/abhay-kumar-gupta-104a18397"
+)
