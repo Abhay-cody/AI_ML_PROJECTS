@@ -15,11 +15,9 @@ st.set_page_config(
 # -----------------------------
 # Load Model
 # -----------------------------
-try:
-    model = joblib.load("knn_model.pkl")
-except Exception as e:
-    st.error(f"Error loading model: {e}")
-    st.stop()
+import joblib
+
+model = joblib.load("knn_model.pkl")
 
 # Load iris dataset
 iris = load_iris()
