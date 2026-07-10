@@ -5,7 +5,13 @@ import joblib
 from PIL import Image
 
 # Load trained model
-model = joblib.load("gender_model.pkl")
+import os
+import joblib
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+MODEL_PATH = os.path.join(BASE_DIR, "gender_model.pkl")
+
+model = joblib.load(MODEL_PATH)
 
 IMG_SIZE = 64
 
