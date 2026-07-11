@@ -70,7 +70,7 @@ import os
 # Title
 # -------------------------------------------------
 
-image_path = "kgf.png"      # Change to "kgf.jpg" if your image is a jpg
+image_path = "kgf.jpg"      # Change to "kgf.jpg" if your image is a jpg
 
 if os.path.isfile(image_path):
     image = Image.open(image_path)
