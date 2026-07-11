@@ -63,7 +63,7 @@ MiniLM SQuAD2
 # Title
 # -------------------------------------------------
 st.image(
-    "kgf2_poster.jpg",
+    "kgf.png",
     use_container_width=True
 )
 
