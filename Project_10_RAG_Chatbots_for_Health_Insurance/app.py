@@ -98,25 +98,20 @@ st.markdown(
 st.markdown("---")
 
 # ============================================================
-# API KEY
+# OPENAI API KEY
 # ============================================================
 
-api_key = os.getenv("GOOGLE_API_KEY")
+api_key = os.getenv("OPENAI_API_KEY")
 
 if not api_key:
-
     api_key = st.sidebar.text_input(
-        "🔑 Enter Google API Key",
+        "🔑 Enter OpenAI API Key",
         type="password",
-        help="Paste your Google Gemini API key here."
     )
 
 if not api_key:
-
-    st.warning("Please enter your Google API Key to continue.")
-
+    st.warning("Please enter your OpenAI API Key.")
     st.stop()
-
 # ============================================================
 # WEBSITE URL
 # ============================================================
