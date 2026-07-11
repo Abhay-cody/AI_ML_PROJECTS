@@ -5,10 +5,7 @@ from bs4 import BeautifulSoup
 
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_community.vectorstores import FAISS
-from langchain_openai import(
-    OpenAIEmbeddings,
-    ChatOpenAI,
-)
+from langchain_openai import OpenAIEmbeddings, ChatOpenAI
 
 # ============================================================
 # PAGE CONFIG
@@ -77,7 +74,7 @@ with st.sidebar:
     st.info(
         """
 This chatbot retrieves information from a Health Insurance website
-and answers your questions using Google's Gemini model.
+and answers your questions using OpenAI GPT.
 """
     )
 
@@ -175,10 +172,10 @@ def create_vector_db(text, api_key):
 
     documents = splitter.create_documents([text])
 
-    embeddings = GoogleGenerativeAIEmbeddings(
-        model="models/embedding-001",
-        google_api_key=api_key,
-    )
+    embeddings = OpenAIEmbeddings(
+    model="text-embedding-3-small",
+    api_key=api_key,
+)
 
     db = FAISS.from_documents(
         documents,
@@ -302,15 +299,15 @@ ANSWER
 ==========================
 """
 
-    with st.spinner("🤖 Gemini is generating an answer..."):
+    with st.spinner("🤖 GPT is generating an answer..."):
 
         try:
 
-            llm = ChatGoogleGenerativeAI(
+            llm = ChatOpenAI(
 
-                model="gemini-2.5-flash",
+                model="gpt-4.1-mini",
 
-                google_api_key=api_key,
+                api_key=api_key,
 
                 temperature=0.2,
 
@@ -362,7 +359,7 @@ st.markdown(
 
 Developed with ❤️ using
 
-**Streamlit • LangChain • FAISS • Google Gemini • BeautifulSoup**
+**Streamlit • LangChain • FAISS • OpenAI GPT • BeautifulSoup**
 
 </div>
 """,
