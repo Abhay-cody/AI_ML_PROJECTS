@@ -63,30 +63,37 @@ MiniLM SQuAD2
 # -------------------------------------------------
 # Title
 # -------------------------------------------------
+from PIL import Image
+import os
 
-if os.path.exists("kgf.png"):
-    st.image("kgf.jpg", use_container_width=True)
+# -------------------------------------------------
+# Title
+# -------------------------------------------------
+
+image_path = "kgf.png"      # Change to "kgf.jpg" if your image is a jpg
+
+if os.path.isfile(image_path):
+    image = Image.open(image_path)
+    st.image(image, use_container_width=True)
 else:
-    st.warning("Poster image (kgf.jpg) not found.")
+    st.error(f"Image '{image_path}' not found.")
 
 st.markdown(
     """
-    <h1 style='text-align:center;
-               color:#FFD700;
-               font-size:42px;'>
+    <h1 style='text-align:center;color:#FFD700;font-size:42px;'>
         🎬 KGF Chapter 2 Review Analysis using LLMs
     </h1>
     """,
-    unsafe_allow_html=True
+    unsafe_allow_html=True,
 )
 
 st.markdown(
     """
     <h4 style='text-align:center;color:#BDBDBD;'>
-        Analyze KGF Chapter 2 Movie Reviews using Large Language Models (LLMs)
+        Analyze KGF Chapter 2 Movie Reviews with Hugging Face Transformers
     </h4>
     """,
-    unsafe_allow_html=True
+    unsafe_allow_html=True,
 )
 
 st.divider()
