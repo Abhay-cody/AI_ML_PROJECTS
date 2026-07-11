@@ -1,6 +1,7 @@
 import streamlit as st
 from transformers import pipeline, AutoTokenizer, AutoModelForQuestionAnswering
 import torch
+import os
 
 # -------------------------------------------------
 # Streamlit Page Configuration
@@ -62,23 +63,33 @@ MiniLM SQuAD2
 # -------------------------------------------------
 # Title
 # -------------------------------------------------
-st.image(
-    "kgf.png",
-    use_container_width=True
-)
+
+if os.path.exists("kgf.png"):
+    st.image("kgf.png", use_container_width=True)
+else:
+    st.warning("Poster image (kgf.png) not found.")
 
 st.markdown(
-    "<h1 style='text-align:center;color:#FFD700;'>KGF Chapter 2 Review Analysis using LLMs</h1>",
+    """
+    <h1 style='text-align:center;
+               color:#FFD700;
+               font-size:42px;'>
+        🎬 KGF Chapter 2 Review Analysis using LLMs
+    </h1>
+    """,
     unsafe_allow_html=True
 )
 
 st.markdown(
-    "<p class='sub-title'>Analyze Movie Reviews with Hugging Face Transformers</p>",
+    """
+    <h4 style='text-align:center;color:#BDBDBD;'>
+        Analyze KGF Chapter 2 Movie Reviews using Large Language Models (LLMs)
+    </h4>
+    """,
     unsafe_allow_html=True
 )
 
 st.divider()
-
 # -------------------------------------------------
 # Load Models
 # -------------------------------------------------
