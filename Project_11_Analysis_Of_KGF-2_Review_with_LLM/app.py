@@ -69,14 +69,10 @@ import os
 # -------------------------------------------------
 # Title
 # -------------------------------------------------
-
-image_path = "kgf.jpg"      # Change to "kgf.jpg" if your image is a jpg
-
-if os.path.isfile(image_path):
-    image = Image.open(image_path)
-    st.image(image, use_container_width=True)
-else:
-    st.error(f"Image '{image_path}' not found.")
+st.image(
+    "https://raw.githubusercontent.com/<username>/<repo>/main/Project_11_Analysis_Of_KGF-2_Review_with_LLM/kgf.jpg",
+    use_container_width=True
+)
 
 st.markdown(
     """
