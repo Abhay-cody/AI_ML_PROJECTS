@@ -83,7 +83,7 @@ and answers your questions using OpenAI GPT.
 # ============================================================
 
 st.markdown(
-    st.subheader("💬 Ask Your Health Insurance Question"),
+    st.subheader("Health Insurance RAG ChatBot"),
     unsafe_allow_html=True,
 )
 
