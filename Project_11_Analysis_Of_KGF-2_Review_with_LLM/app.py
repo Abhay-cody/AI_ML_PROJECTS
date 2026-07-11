@@ -62,8 +62,13 @@ MiniLM SQuAD2
 # -------------------------------------------------
 # Title
 # -------------------------------------------------
+st.image(
+    "kgf2_poster.jpg",
+    use_container_width=True
+)
+
 st.markdown(
-    "<h1 class='main-title'>KGF Chapter 2 Review Analysis using LLMs</h1>",
+    "<h1 style='text-align:center;color:#FFD700;'>KGF Chapter 2 Review Analysis using LLMs</h1>",
     unsafe_allow_html=True
 )
 
