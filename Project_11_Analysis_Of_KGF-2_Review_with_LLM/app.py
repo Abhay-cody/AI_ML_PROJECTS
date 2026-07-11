@@ -70,7 +70,7 @@ import os
 # Title
 # -------------------------------------------------
 st.image(
-    "https://raw.githubusercontent.com/<username>/<repo>/main/Project_11_Analysis_Of_KGF-2_Review_with_LLM/kgf.jpg",
+    "https://raw.githubusercontent.com/Abhay-cody/AI_ML_PROJECTS/main/Project_11_Analysis_Of_KGF-2_Review_with_LLM/kgf.jpg",
     use_container_width=True
 )
 
