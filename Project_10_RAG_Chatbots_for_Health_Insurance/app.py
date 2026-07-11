@@ -82,10 +82,7 @@ and answers your questions using OpenAI GPT.
 # MAIN PAGE
 # ============================================================
 
-st.markdown(
-    st.subheader("Health Insurance RAG ChatBot"),
-    unsafe_allow_html=True,
-)
+st.title("Health Insurance RAG ChatBot")  
 
 st.markdown(
     '<p class="subtitle">Ask anything related to Health Insurance Policies.</p>',
