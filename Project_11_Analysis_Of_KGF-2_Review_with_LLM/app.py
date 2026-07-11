@@ -65,9 +65,9 @@ MiniLM SQuAD2
 # -------------------------------------------------
 
 if os.path.exists("kgf.png"):
-    st.image("kgf.png", use_container_width=True)
+    st.image("kgf.jpg", use_container_width=True)
 else:
-    st.warning("Poster image (kgf.png) not found.")
+    st.warning("Poster image (kgf.jpg) not found.")
 
 st.markdown(
     """
