@@ -100,12 +100,12 @@ api_key = os.getenv("GOOGLE_API_KEY")
 
 if not api_key:
     api_key = st.sidebar.text_input(
-        "🔑 Enter Gemini API Key",
+        "🔑 Enter API Key",
         type="password"
     )
 
 if not api_key:
-    st.warning("Please enter your Gemini API Key from the sidebar.")
+    st.warning("Please enter your API Key.")
     st.stop()
 
 # =====================================================
