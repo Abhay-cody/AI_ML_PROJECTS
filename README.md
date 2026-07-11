@@ -26,11 +26,15 @@ Project_8(Iris Flower Species Prediction Using KNN) URL :-
 
 https://aimlprojects-23emdpdz2dhkbw3izyltnn.streamlit.app/
 
-Project_8(Covid_19_from_Chest_X_Ray) Website URL:--
+Project_8(Covid_19_from_Chest_X_Ray) Website URL:-
 
 https://aimlprojects-lspcup2gtfcdqgo2awth6t.streamlit.app/
 
-Project_10(Chatbot for Health Insurance):--
+Project_9(Male vs Female Eye Classification) URL:-
+
+https://aimlprojects-zinmcxodbzc3jg42gq4wig.streamlit.app/
+
+Project_10(Chatbot for Health Insurance):-
 
 https://aimlprojects-dmpcpkubu8idac83b9aj6a.streamlit.app/
 
@@ -38,14 +42,14 @@ Project_11(Analysis_Of_KGF-2_Review_with_LLM) URL:-
 
 https://aimlprojects-a3nj4qo9z6fsopfekwdhjb.streamlit.app/
 
-House_Price_Prediction URL:--
+House_Price_Prediction URL:-
 
 https://aimlprojects-uesagn423gnlevktyccmsw.streamlit.app/
 
-Insurance Purchase Prediction URl:--
+Insurance Purchase Prediction URl:-
 
 https://aimlprojects-tnt4aoueuhsstxbnpod27p.streamlit.app/
 
-RAG_Chatbots_for_Technical_Documentation_Samsung_Washing_Machine_Manual Website URL :--
+RAG_Chatbots_for_Technical_Documentation_Samsung_Washing_Machine_Manual Website URL :-
 
 https://aimlprojects-47pffypf5xegr4y4moai5b.streamlit.app/
