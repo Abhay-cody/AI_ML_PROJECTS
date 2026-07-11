@@ -219,6 +219,42 @@ with tab2:
 
 st.divider()
 
+# ==========================================
+# 👨‍💻 Developer Profile
+# ==========================================
+
+st.markdown("---")
+st.markdown("## 👨‍💻 Developer")
+
+col1, col2 = st.columns([1, 3])
+
+with col1:
+    st.image(
+        "https://avatars.githubusercontent.com/u/9919?s=200&v=4",
+        width=120
+    )
+
+with col2:
+    st.markdown("### **ABHAY KUMAR GUPTA**")
+    st.markdown("**Machine Learning | Data Science | Python Developer**")
+
+st.markdown("### 🔗 Connect With Me")
+
+c1, c2 = st.columns(2)
+
+with c1:
+    st.link_button(
+        "🐙 GitHub Profile",
+        "https://github.com/Abhay-cody"
+    )
+
+with c2:
+    st.link_button(
+        "💼 LinkedIn Profile",
+        "https://www.linkedin.com/in/abhay-kumar-gupta-104a18397"
+    )
+
+
 st.markdown(
 """
 <center>
